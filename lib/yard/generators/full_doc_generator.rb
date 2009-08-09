@@ -47,7 +47,7 @@ module YARD
         if format == :html && serializer
           [css_file, css_custom_file, css_syntax_file, js_file, js_app_file].each do |filename|
             template_file = find_template template_path(filename)
-            serializer.serialize(filename, File.read(template_file))
+            serializer.serialize(filename, File.read(template_file)) unless template_file.nil?
           end
         end
         true
